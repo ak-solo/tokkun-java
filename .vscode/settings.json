@@ -1,0 +1,9 @@
+{
+  "java.project.sourcePaths": ["src", "playground"],
+  "java.project.outputPath": "build/classes",
+  "java.test.config": {
+    "workingDirectory": "${workspaceFolder}"
+  },
+  "editor.formatOnSave": true,
+  "files.encoding": "utf8"
+}

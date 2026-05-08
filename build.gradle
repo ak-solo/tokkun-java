@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src', 'playground']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['tests']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 各章のプレイグラウンドを実行するタスク
+(1..9).each { n ->
+    def chapterNum = String.format('%02d', n)
+    tasks.register("runChapter${chapterNum}", JavaExec) {
+        group = 'playground'
+        description = "Chapter ${chapterNum} プレイグラウンドを実行する"
+        classpath = sourceSets.main.runtimeClasspath
+        mainClass = "chapter${chapterNum}.Playground"
+        dependsOn compileJava
+    }
+}

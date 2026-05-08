@@ -1,0 +1,22 @@
+{
+  "name": "tokkun-java",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-gradle"
+      ],
+      "settings": {
+        "java.jdt.ls.java.home": "/usr/local/openjdk-21",
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  },
+  "postCreateCommand": "gradle --version",
+  "remoteUser": "root"
+}
