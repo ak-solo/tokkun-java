@@ -1,5 +1,5 @@
 {
-  "java.project.sourcePaths": ["src", "playground"],
+  "java.project.sourcePaths": ["src", "playground", "tests"],
   "java.project.outputPath": "build/classes",
   "java.test.config": {
     "workingDirectory": "${workspaceFolder}"
