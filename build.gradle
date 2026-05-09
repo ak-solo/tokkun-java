@@ -33,6 +33,18 @@ test {
     useJUnitPlatform()
 }
 
+// JShell でメソッドを対話的に試す
+tasks.register('jshell', Exec) {
+    group = 'playground'
+    description = 'JShell を起動してメソッドを対話的に試す'
+    dependsOn compileJava
+    commandLine 'jshell',
+        '--class-path', sourceSets.main.output.classesDirs.asPath,
+        '--startup', 'DEFAULT',
+        '--startup', '.jshell-startup.jsh'
+    standardInput = System.in
+}
+
 // 各章のプレイグラウンドを実行するタスク
 (1..9).each { n ->
     def chapterNum = String.format('%02d', n)
