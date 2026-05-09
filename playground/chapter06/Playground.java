@@ -83,5 +83,14 @@ public class Playground {
         } catch (UnsupportedOperationException e) {
             System.out.println("  [未実装] 問題 6-9");
         }
+
+        try {
+            int side = 4;        // ← 変えて試そう
+            int w = 3, h = 7;   // ← 変えて試そう
+            System.out.println("正方形（一辺 " + side + "）の面積 = " + Exercises.problem6_10(side));
+            System.out.println("長方形（" + w + " × " + h + "）の面積 = " + Exercises.problem6_10(w, h));
+        } catch (UnsupportedOperationException e) {
+            System.out.println("  [未実装] 問題 6-10");
+        }
     }
 }

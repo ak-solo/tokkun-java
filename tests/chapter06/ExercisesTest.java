@@ -161,4 +161,17 @@ class ExercisesTest {
         Exercises.problem6_9(arr);
         assertArrayEquals(new int[]{1, 1, 2, 3, 4, 5, 6, 9}, arr);
     }
+
+    // --- 問題 6-10: オーバーロード（面積）---
+    @ParameterizedTest
+    @CsvSource({"1, 1", "4, 16", "5, 25", "10, 100"})
+    void test_6_10_SquareArea(int side, int expected) {
+        assertEquals(expected, Exercises.problem6_10(side));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"3, 4, 12", "1, 1, 1", "10, 5, 50", "7, 3, 21"})
+    void test_6_10_RectArea(int width, int height, int expected) {
+        assertEquals(expected, Exercises.problem6_10(width, height));
+    }
 }

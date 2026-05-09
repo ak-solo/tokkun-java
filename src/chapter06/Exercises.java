@@ -38,7 +38,6 @@ public class Exercises {
     }
 
     // 問題 6-8: a と b の値を交換した結果を {b, a} の配列で返す
-    //           ヒント: Java に ref 引数はないため、交換後の値を配列で返す
     public static int[] problem6_8(int a, int b) {
         throw new UnsupportedOperationException("問題 6-8 を実装してください");
     }
@@ -46,5 +45,15 @@ public class Exercises {
     // 問題 6-9: numbers を昇順に並べ替える（元の配列を直接書き換える）
     public static void problem6_9(int[] numbers) {
         throw new UnsupportedOperationException("問題 6-9 を実装してください");
+    }
+
+    // 問題 6-10: 正方形の面積を返す（オーバーロード）
+    public static int problem6_10(int side) {
+        throw new UnsupportedOperationException("問題 6-10 を実装してください");
+    }
+
+    // 問題 6-10: 長方形の面積を返す（オーバーロード）
+    public static int problem6_10(int width, int height) {
+        throw new UnsupportedOperationException("問題 6-10 を実装してください");
     }
 }
