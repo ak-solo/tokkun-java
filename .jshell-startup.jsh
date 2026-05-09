@@ -1,9 +1,0 @@
-import chapter01.*;
-import chapter02.*;
-import chapter03.*;
-import chapter04.*;
-import chapter05.*;
-import chapter06.*;
-import chapter07.*;
-import chapter08.*;
-import chapter09.*;

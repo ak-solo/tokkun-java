@@ -174,10 +174,10 @@ x = 10;         // x に 10 を代入
 
 ## JShell で試す
 
-`gradle jshell` を実行すると、実装したメソッドをすぐに呼び出して結果を確認できます。
+`gradle jshellChapter01` を実行すると、実装したメソッドをすぐに呼び出して結果を確認できます。
 
 ```
-$ gradle jshell
+$ gradle jshellChapter01
 
 -> Exercises.problem1_4()
 $1 ==> 30

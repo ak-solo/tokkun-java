@@ -134,28 +134,38 @@ gradle test
 | `gradle test` | 全テストを実行する |
 | `gradle test --tests "chapter01.*"` | 1章のテストだけ実行する |
 | `gradle runChapter01` | 1章のプレイグラウンドを実行する |
-| `gradle jshell` | JShell を起動してメソッドを対話的に試す |
+| `gradle jshellChapter01` | 1章専用の JShell を起動する（`Exercises.problem1_1()` と短く呼べる） |
+| `gradle jshell` | JShell を起動する（完全修飾名 `chapter01.Exercises.problem1_1()` で呼ぶ） |
 
 ### JShell の使い方
 
-`gradle jshell` を実行すると、実装したメソッドをその場で呼び出して結果を確認できます。
-VBA のイミディエイトウィンドウのような感覚で使えます。
+**章専用タスク（推奨）**: `gradle jshellChapter01`（番号は対象章に合わせる）
 
 ```
-$ gradle jshell
+$ gradle jshellChapter01
 |  ようこそ JShell へ。
 
 -> Exercises.problem1_4()
 $1 ==> 30
 
--> Exercises.problem1_9(5)
-$2 ==> "10,15,20"
+-> /exit
+```
+
+**汎用タスク**: `gradle jshell` — 全章のクラスパスが通っているため、完全修飾名で複数章をまたいで呼べます。
+
+```
+$ gradle jshell
+
+-> chapter01.Exercises.problem1_4()
+$1 ==> 30
+
+-> chapter02.Exercises.problem2_1("hello")
+$2 ==> "HELLO"
 
 -> /exit
 ```
 
-全章の `Exercises` クラスが最初からインポートされているため、`import` を入力する必要はありません。
-コードを変更したときは `/exit` で終了し、`gradle jshell` を再実行すると最新の実装が反映されます。
+コードを変更したときは `/exit` で終了し、タスクを再実行すると最新の実装が反映されます。
 
 ---
 
