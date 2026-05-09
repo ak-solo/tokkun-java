@@ -134,6 +134,28 @@ gradle test
 | `gradle test` | 全テストを実行する |
 | `gradle test --tests "chapter01.*"` | 1章のテストだけ実行する |
 | `gradle runChapter01` | 1章のプレイグラウンドを実行する |
+| `gradle jshell` | JShell を起動してメソッドを対話的に試す |
+
+### JShell の使い方
+
+`gradle jshell` を実行すると、実装したメソッドをその場で呼び出して結果を確認できます。
+VBA のイミディエイトウィンドウのような感覚で使えます。
+
+```
+$ gradle jshell
+|  ようこそ JShell へ。
+
+-> Exercises.problem1_4()
+$1 ==> 30
+
+-> Exercises.problem1_9(5)
+$2 ==> "10,15,20"
+
+-> /exit
+```
+
+全章の `Exercises` クラスが最初からインポートされているため、`import` を入力する必要はありません。
+コードを変更したときは `/exit` で終了し、`gradle jshell` を再実行すると最新の実装が反映されます。
 
 ---
 
