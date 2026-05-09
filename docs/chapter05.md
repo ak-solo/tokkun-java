@@ -38,7 +38,7 @@ for (int s : scores) {
 }
 ```
 
-> **注意:** 配列の要素数は `arr.length` です（C# の `arr.Length` とは大文字・小文字が異なります）。
+> **注意:** 配列の要素数は `arr.length` です（文字列の `str.length()` と違い、括弧は不要です）。
 
 ---
 
@@ -57,7 +57,7 @@ for (int i = arr.length - 1; i >= 0; i--) {
 
 ### 2次元配列
 
-Java では `int[][]` でジャグ配列として宣言します。
+`int[][]` で 2 次元配列を宣言します。
 
 ```java
 int[][] matrix = new int[3][3];  // 3×3
@@ -143,7 +143,7 @@ String result = Arrays.stream(numbers)
 - `result[0]` = 偶数のみの配列（入力順を保つ）
 - `result[1]` = 奇数のみの配列（入力順を保つ）
 
-戻り値の型: `int[][]`（ジャグ配列）
+戻り値の型: `int[][]`（2 次元配列）
 
 ---
 
