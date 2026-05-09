@@ -134,7 +134,7 @@ gradle test
 | `gradle test` | 全テストを実行する |
 | `gradle test --tests "chapter01.*"` | 1章のテストだけ実行する |
 | `gradle runChapter01` | 1章のプレイグラウンドを実行する |
-| `gradle jshellChapter01` | 1章専用の JShell を起動する（`Exercises.problem1_1()` と短く呼べる） |
+| `gradle jshellChapter01` | 1章専用の JShell を起動する（`problem1_1()` とメソッド名だけで呼べる） |
 | `gradle jshell` | JShell を起動する（完全修飾名 `chapter01.Exercises.problem1_1()` で呼ぶ） |
 
 ### JShell の使い方
@@ -145,7 +145,7 @@ gradle test
 $ gradle jshellChapter01
 |  ようこそ JShell へ。
 
--> Exercises.problem1_4()
+-> problem1_4()
 $1 ==> 30
 
 -> /exit

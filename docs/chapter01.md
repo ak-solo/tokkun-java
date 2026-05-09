@@ -179,13 +179,13 @@ x = 10;         // x に 10 を代入
 ```
 $ gradle jshellChapter01
 
--> Exercises.problem1_4()
+-> problem1_4()
 $1 ==> 30
 
--> Exercises.problem1_9(3)
+-> problem1_9(3)
 $2 ==> "6,9,12"
 
--> Exercises.problem1_13(17, 5)
+-> problem1_13(17, 5)
 $3 ==> "3,2"
 
 -> /exit
