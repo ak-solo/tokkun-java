@@ -52,7 +52,7 @@ tasks.register('jshell', Exec) {
         description = "Chapter ${chapterNum} 専用の JShell を起動する"
         dependsOn compileJava
         doFirst {
-            file(".jshell-chapter${chapterNum}.jsh").text = "import chapter${chapterNum}.*;\n"
+            file(".jshell-chapter${chapterNum}.jsh").text = "import chapter${chapterNum}.*;\nimport static chapter${chapterNum}.Exercises.*;\n"
         }
         commandLine 'jshell',
             '--class-path', sourceSets.main.output.classesDirs.asPath,
