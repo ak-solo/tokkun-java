@@ -1,8 +1,5 @@
 package chapter07;
 
-import java.util.HashMap;
-import java.util.Map;
-
 // 問題 7-5 〜 7-6: CoinCase クラス
 public class CoinCase {
 
