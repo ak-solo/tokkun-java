@@ -34,13 +34,14 @@ test {
 }
 
 // JShell でメソッドを対話的に試す（完全修飾名で呼ぶ例: chapter01.Exercises.problem1_1()）
-// exec で bash を JShell に置き換えることで TTY を引き継ぎ、上矢印ヒストリが使えるようにする
 tasks.register('jshell', Exec) {
     group = 'playground'
     description = 'JShell を起動してメソッドを対話的に試す'
     dependsOn compileJava
-    commandLine 'bash', '-c',
-        "exec jshell --class-path ${sourceSets.main.output.classesDirs.asPath} --startup DEFAULT"
+    commandLine 'jshell',
+        '--class-path', sourceSets.main.output.classesDirs.asPath,
+        '--startup', 'DEFAULT'
+    standardInput = System.in
 }
 
 // 各章専用の JShell タスク（その章だけ import するため Exercises が曖昧にならない）
@@ -53,8 +54,11 @@ tasks.register('jshell', Exec) {
         doFirst {
             file(".jshell-chapter${chapterNum}.jsh").text = "import chapter${chapterNum}.*;\n"
         }
-        commandLine 'bash', '-c',
-            "exec jshell --class-path ${sourceSets.main.output.classesDirs.asPath} --startup DEFAULT --startup .jshell-chapter${chapterNum}.jsh"
+        commandLine 'jshell',
+            '--class-path', sourceSets.main.output.classesDirs.asPath,
+            '--startup', 'DEFAULT',
+            "--startup", ".jshell-chapter${chapterNum}.jsh"
+        standardInput = System.in
         doLast {
             file(".jshell-chapter${chapterNum}.jsh").delete()
         }
