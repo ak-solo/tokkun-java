@@ -56,7 +56,7 @@ class ExercisesTest {
 
     // --- 問題 4-8 ---
     @ParameterizedTest
-    @CsvSource({"7, true", "13, true", "4, false", "9, false", "100, false", "97, true"})
+    @CsvSource({"1, false", "2, true", "7, true", "13, true", "4, false", "9, false", "100, false", "97, true"})
     void test_4_8_IsPrime(int n, boolean expected) {
         assertEquals(expected, Exercises.problem4_8(n));
     }
