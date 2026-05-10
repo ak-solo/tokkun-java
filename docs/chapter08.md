@@ -2,10 +2,47 @@
 
 ## 基礎知識
 
+### 継承とは
+
+7 章では 1 つのクラスを設計しました。しかし複数のクラスが共通のデータや操作を持つことはよくあります。
+
+たとえば `Cat` クラスと `Dog` クラスを別々に作ると、`name`・`age` フィールドや `showProfile()` メソッドを両方に書かなければなりません。
+
+```java
+// 同じコードを二か所に書くのは非効率
+public class Cat {
+    private String name;
+    private int age;
+    public String showProfile() { ... }
+    public String sleep() { ... }  // Cat 固有
+}
+
+public class Dog {
+    private String name;           // Cat と全く同じ
+    private int age;               // Cat と全く同じ
+    public String showProfile() { ... }  // Cat と全く同じ
+    public String run() { ... }          // Dog 固有
+}
+```
+
+**継承**を使うと、共通部分を**親クラス（スーパークラス）**に一か所だけ書き、各クラス固有の部分だけを**子クラス（サブクラス）**に追加できます。
+
+```
+        Animal（親クラス）
+        name, age, showProfile()
+           ↙            ↘
+    Cat（子）          Dog（子）
+    sleep()            run()
+```
+
+この関係を「Cat は Animal の一種（Cat is-a Animal）」と表現します。継承が自然に使えるのは、この「is-a 関係」が成立するときです。
+
+---
+
 ### 継承（extends）
 
 既存のクラスを**親クラス（スーパークラス）**として、その機能を引き継ぐ新しいクラスを作れます。
-これを**継承**といい、Java では `extends 親クラス名` で宣言します。
+これを**継承**といい、Java では `extends 親クラス名` で宣言します。派生クラスは親クラスのフィールド・メソッドをそのまま使えます。
 
 ```java
 public class Animal {
@@ -86,10 +123,11 @@ public class Dog extends Animal {
 
 ---
 
-### ポリモーフィズム
+### ポリモーフィズム（多態性）
 
-親クラス型の変数に、子クラスのインスタンスを代入できます。
-メソッドを呼び出すと、**実際のインスタンスの型**に応じたメソッドが実行されます。
+**ポリモーフィズム**とは「同じ操作を型によって異なる動作にできる」性質です。
+
+親クラス型の変数に派生クラスのインスタンスを代入できます。メソッドを呼び出すと、変数の型（`Animal`）ではなく**実際のインスタンスの型**（`Cat` や `Dog`）に応じたメソッドが実行されます。
 
 ```java
 Animal[] animals = {
@@ -103,8 +141,17 @@ for (Animal a : animals) {
 }
 ```
 
-`animals` の型は `Animal[]` ですが、実行時には Cat や Dog それぞれの `speak` が呼ばれます。
-これが**ポリモーフィズム（多態性）**です。
+ポリモーフィズムの強みは、**新しい動物クラスを追加してもループのコードを変えなくてよい**点です。
+
+```java
+// Bird クラスを追加しても、上のループはそのまま動く
+public class Bird extends Animal {
+    @Override
+    public String speak() { return "チュンチュン"; }
+}
+```
+
+ポリモーフィズムがない場合は、型ごとに `if` で分岐するコードを書かなければならず、種類が増えるたびに修正が必要になります。
 
 ---
 
